@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSWorldSensingUsageDescription</key>
+	<string>This app needs world sensing data to track image markers in space.</string>
+	<key>NSMainCameraUsageDescription</key>
+	<string>The main camera is required to observe reference images and show overlays.</string>
+	<key>NSHandsTrackingUsageDescription</key>
+	<string>Hand tracking keeps interactions responsive while diagnostics are visible.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>

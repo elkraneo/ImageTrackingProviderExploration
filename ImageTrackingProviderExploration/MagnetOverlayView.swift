@@ -16,15 +16,14 @@ struct MagnetOverlayView: View {
     VStack(alignment: .leading, spacing: 8) {
       Text(state.info.title)
         .font(.headline)
+
+      statusLabel
+
       Text(state.info.details)
         .font(.callout)
         .foregroundStyle(.secondary)
 
-      if !state.isTracked {
-        Text("Searching…")
-          .font(.caption)
-          .foregroundStyle(.orange)
-      }
+      metricsStack
     }
     .padding(16)
     .background(
@@ -46,8 +45,40 @@ struct MagnetOverlayView: View {
         details: "Dial in a double in 25 seconds."
       ),
       transform: .identity,
-      isTracked: true
+      isTracked: true,
+      estimatedScaleFactor: 1.02,
+      lastObservationDate: .now,
+      referenceSize: CGSize(width: 0.08, height: 0.05)
     )
   )
   .padding()
+}
+
+private extension MagnetOverlayView {
+
+  var statusLabel: some View {
+    Label {
+      Text(state.isTracked ? "Tracked" : "Not tracked")
+    } icon: {
+      Image(
+        systemName: state.isTracked ? "checkmark.circle.fill" : "exclamationmark.triangle.fill"
+      )
+      .symbolRenderingMode(.palette)
+      .foregroundStyle(state.isTracked ? .green : .orange, .white)
+    }
+    .font(.caption)
+    .fontWeight(.semibold)
+  }
+
+  var metricsStack: some View {
+    VStack(alignment: .leading, spacing: 4) {
+      Text("Scale: \(state.estimatedScaleFactor, format: .number.precision(.fractionLength(3)))×")
+        .font(.caption)
+        .foregroundStyle(.secondary)
+
+      Text("Updated: \(state.lastObservationDate, format: .dateTime.hour().minute().second())")
+        .font(.caption2)
+        .foregroundStyle(.tertiary)
+    }
+  }
 }

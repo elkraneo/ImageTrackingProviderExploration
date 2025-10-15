@@ -28,6 +28,6 @@ struct ImageTrackingProviderExplorationApp: App {
                     appModel.immersiveSpaceState = .closed
                 }
         }
-        .immersionStyle(selection: .constant(.progressive), in: .progressive)
+        .immersionStyle(selection: .constant(.mixed), in: .progressive, .mixed)
     }
 }

@@ -1,0 +1,20 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "espresso.arreferenceimage"
+    },
+    {
+      "filename" : "market.arreferenceimage"
+    },
+    {
+      "filename" : "matcha.arreferenceimage"
+    },
+    {
+      "filename" : "mistery.arreferenceimage"
+    }
+  ]
+}
